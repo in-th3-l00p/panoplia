@@ -10,6 +10,9 @@
 [submodule "panoplia.app"]
 	path = panoplia.app
 	url = https://github.com/https://github.com/in-th3-l00p/panoplia.app.git
+[submodule "panoplia.lifi"]
+	path = panoplia.lifi
+	url = https://github.com/https://github.com/in-th3-l00p/panoplia.defi.git
 [submodule "demo"]
 	path = panoplia.demo
 	url = https://github.com/https://github.com/in-th3-l00p/demo.git
