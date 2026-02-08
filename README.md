@@ -99,47 +99,47 @@ panoplia/
 ┌─────────────────────────────────────────────────────────────┐
 │                     Client (Electron / Web)                 │
 │                                                             │
-│  ┌──────────┐   ┌──────────────┐   ┌──────────────────┐    │
-│  │ Auth     │   │ Wallet       │   │ Views            │    │
-│  │ Store    │   │ Store        │   │  Dashboard       │    │
-│  │ (Zustand)│   │ (Zustand)    │   │  Transfer        │    │
-│  └────┬─────┘   └──────┬───────┘   │  DeFi / Security │    │
-│       │                │           └────────┬─────────┘    │
-│       └────────┬───────┘                    │              │
-│                ▼                            │              │
-│        ┌──────────────┐                     │              │
-│        │  API Client  │◄────────────────────┘              │
-│        │  (fetch+JWT) │                                    │
-│        └──────┬───────┘                                    │
-│               │            ┌──────────────┐                │
-│               │            │ panoplia.peer│ ZKP2P hooks    │
-│               │            │ (on/off-ramp)│                │
-│               │            └──────────────┘                │
-│               │            ┌──────────────┐                │
-│               │            │ panoplia.lifi│ LiFi hooks     │
-│               │            │ (swap/bridge)│                │
-│               │            └──────────────┘                │
+│  ┌──────────┐   ┌──────────────┐   ┌──────────────────┐     │
+│  │ Auth     │   │ Wallet       │   │ Views            │     │
+│  │ Store    │   │ Store        │   │  Dashboard       │     │
+│  │ (Zustand)│   │ (Zustand)    │   │  Transfer        │     │
+│  └────┬─────┘   └──────┬───────┘   │  DeFi / Security │     │
+│       │                │           └────────┬─────────┘     │
+│       └────────┬───────┘                    │               │
+│                ▼                            │               │
+│        ┌──────────────┐                     │               │
+│        │  API Client  │◄────────────────────┘               │
+│        │  (fetch+JWT) │                                     │
+│        └──────┬───────┘                                     │
+│               │            ┌──────────────┐                 │
+│               │            │ panoplia.peer│ ZKP2P hooks     │
+│               │            │ (on/off-ramp)│                 │
+│               │            └──────────────┘                 │
+│               │            ┌──────────────┐                 │
+│               │            │ panoplia.lifi│ LiFi hooks      │
+│               │            │ (swap/bridge)│                 │
+│               │            └──────────────┘                 │
 └───────────────┼─────────────────────────────────────────────┘
                 │ REST /api
                 ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    panoplia.mpc (server)                     │
+│                    panoplia.mpc (server)                    │
 │                                                             │
-│  Express ─► Routes ─► Services ─► SQLite (WAL)             │
+│  Express ─► Routes ─► Services ─► SQLite (WAL)              │
 │  (helmet, rate-limit, CORS)                                 │
 │                                                             │
-│  ┌──────────────────┐  ┌───────────────┐  ┌─────────────┐  │
-│  │ VaultCoordinator │  │ AuthService   │  │ RecoveryServ│  │
-│  │                  │  │ bcrypt + JWT  │  │ Shamir SSS  │  │
-│  │  Vultisig SDK    │  └───────────────┘  └─────────────┘  │
-│  │  (WASM, cached)  │                                      │
-│  │  ┌────────────┐  │  ┌───────────────────────────────┐   │
-│  │  │ServerVault │  │  │ SQLite tables (9)             │   │
-│  │  │Storage     │──┼─►│ kv_store, users, vaults,      │   │
+│  ┌──────────────────┐  ┌───────────────┐  ┌─────────────┐   │
+│  │ VaultCoordinator │  │ AuthService   │  │ RecoveryServ│   │
+│  │                  │  │ bcrypt + JWT  │  │ Shamir SSS  │   │
+│  │  Vultisig SDK    │  └───────────────┘  └─────────────┘   │
+│  │  (WASM, cached)  │                                       │
+│  │  ┌────────────┐  │  ┌───────────────────────────────┐    │
+│  │  │ServerVault │  │  │ SQLite tables (9)             │    │
+│  │  │Storage     │──┼─►│ kv_store, users, vaults,      │    │
 │  │  │(kv_store)  │  │  │ vault_addresses, transactions, │   │
 │  │  └────────────┘  │  │ recovery_configs, guardians,   │   │
 │  └──────────────────┘  │ recovery_attempts, shares      │   │
-│                        └───────────────────────────────┘   │
+│                        └───────────────────────────────┘    │
 │                                                             │
 │              ▼ Vultisig relay (MPC ceremony)                │
 └─────────────────────────────────────────────────────────────┘
