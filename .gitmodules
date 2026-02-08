@@ -1,0 +1,15 @@
+[submodule "panoplia.mpc"]
+	path = panoplia.mpc
+	url = https://github.com/in-th3-l00p/panoplia.mpc.git
+[submodule "panoplia.peer"]
+	path = panoplia.peer
+	url = https://github.com/in-th3-l00p/panoplia.peer.git
+[submodule "panoplia.defi"]
+	path = panoplia.defi
+	url = https://github.com/in-th3-l00p/panoplia.defi.git
+[submodule "panoplia.app"]
+	path = panoplia.app
+	url = https://github.com/https://github.com/in-th3-l00p/panoplia.app.git
+[submodule "demo"]
+	path = panoplia.demo
+	url = https://github.com/https://github.com/in-th3-l00p/demo.git
